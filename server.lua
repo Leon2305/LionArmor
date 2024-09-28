@@ -13,6 +13,7 @@ end)
 AddEventHandler('ox_inventory:usedItem', function(playerId, name, slotId, metadata)
     if name == Config.ItemName then
         local ped = GetPlayerPed(playerId)
+        TriggerClientEvent("LionArmor:UseVest", playerId, "on")
         SetPedArmour(ped, metadata.durability)
         if GetResourceState("ox_lib") ~= 'missing' then
             TriggerClientEvent('ox_lib:notify', playerId, {
@@ -38,6 +39,7 @@ AddEventHandler("LionArmor:RemoveVest", function()
         metadata = {
             durability = GetPedArmour(ped)
         }
+        TriggerClientEvent("LionArmor:UseVest", source, "off")
         exports.ox_inventory:AddItem(source, Config.ItemName, 1, metadata)
         if GetResourceState("ox_lib") ~= 'missing' or Config.Notify ~= "ox_lib" then
             TriggerClientEvent('ox_lib:notify', source, {

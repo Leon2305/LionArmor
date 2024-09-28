@@ -5,6 +5,7 @@ Config.Locale = GetConvar('esx:locale', 'en')
 Config.ItemName = "vest" --Item name in ox_inventory
 Config.Notify = "ox_lib" --Provide your notification system. If it’s not ox lib, you’ll need to integrate it into the server.lua
 Config.OxLibRadialMenu = true --True if you're using the oxlib radial menu and want a menu option to remove the bulletproof vest, otherwise false
+Config.Skin = 15
 
 Translation = {
     ['de'] = {
